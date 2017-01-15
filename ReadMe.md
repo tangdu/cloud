@@ -12,7 +12,7 @@
     http://localhost:9091/
 ##2.测试服务调用
     http://localhost:9092/s_hello?name=222
-##3.hystrix minito
+##3.hystrix minitor
     http://localhost:9091/hystrix
     输入：
     http://localhost:9092/hystrix.stream
