@@ -1,0 +1,29 @@
+
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+    [
+        compileJava,
+        compileTestJava,
+        javadoc
+    ]*.options*.encoding = 'UTF-8'
+
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    configurations {
+
+
+
+    }
+
+}
+
+
