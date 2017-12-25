@@ -1,29 +1,22 @@
-
-
-allprojects {
-    apply plugin: "java"
-    apply plugin: 'idea'
-
-    sourceCompatibility = 1.7
-    targetCompatibility = 1.7
-    [
-        compileJava,
-        compileTestJava,
-        javadoc
-    ]*.options*.encoding = 'UTF-8'
-
-
+buildscript {
     repositories {
-        mavenLocal()
         mavenCentral()
     }
-
-    configurations {
-
-
-
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}")
     }
+}
 
+subprojects {
+    apply plugin: "java"
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
 }
 
 

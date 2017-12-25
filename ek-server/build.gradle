@@ -1,30 +1,11 @@
-buildscript {
-    ext {
-        springBootVersion = '1.4.0.RELEASE'
-    }
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
-
-
 apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-
+apply plugin: 'war'
 
 
 dependencyManagement {
 
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR4"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Edgware.RELEASE"
     }
 }
 
@@ -32,17 +13,15 @@ jar {
     baseName = 'cloud'
     version = '0.0.1-SNAPSHOT'
 }
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
-    //compile('org.springframework.cloud:spring-cloud-starter-bus-kafka')
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
+
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
     compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
     compile('org.springframework.cloud:spring-cloud-starter-feign')

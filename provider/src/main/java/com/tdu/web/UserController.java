@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
 public class UserController implements UserFacade {
     private static final Logger LOGGER= LoggerFactory.getLogger(UserController.class);
 

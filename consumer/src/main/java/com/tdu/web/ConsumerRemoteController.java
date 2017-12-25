@@ -1,35 +1,45 @@
 package com.tdu.web;
 
+import com.tdu.ro.UserInfoRO;
 import com.tdu.ro.UserQueryRO;
+import com.tdu.servcie.UserFacadeClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import com.tdu.facade.UserFacade;
-
-@Controller
+@RestController
 public class ConsumerRemoteController {
     private static final Logger LOGGER= LoggerFactory.getLogger(ConsumerRemoteController.class);
 
     @Autowired
-    private UserFacade userFacade;
+    private UserFacadeClient userFacadeClient;
 
     @RequestMapping(value = "/s_hello", method = RequestMethod.GET)
     @ResponseBody
     public String sayHello(@RequestParam("name") String name) {
         //String f=userFacade.moreParams(name,12);
         //LOGGER.info(f+":-------------moreParams");
-
+        long start=System.currentTimeMillis();
         UserQueryRO userQueryRO=new UserQueryRO();
         userQueryRO.setUserName(name);
         userQueryRO.setUserId("11111");
+        String sayHello = userFacadeClient.sayHello(name);
+        LOGGER.info("queryUserInfo--exec:{}ms",(System.currentTimeMillis()-start));
+        return sayHello;
+    }
 
-        LOGGER.info("queryUserInfo--{}",userFacade.queryUserInfo(userQueryRO));
-        return userFacade.sayHello(name);
+    @RequestMapping(value = "/s_user", method = RequestMethod.GET)
+    @ResponseBody
+    public String s_user() {
+        //String f=userFacade.moreParams(name,12);
+        //LOGGER.info(f+":-------------moreParams");
+        long start=System.currentTimeMillis();
+        UserQueryRO userQueryRO=new UserQueryRO();
+        userQueryRO.setUserName("2222");
+        userQueryRO.setUserId("11111");
+        UserInfoRO userInfoRO = userFacadeClient.queryUserInfo(userQueryRO);
+        LOGGER.info("queryUserInfo--exec:{}ms",(System.currentTimeMillis()-start));
+        return "ssssssssss";
     }
 }

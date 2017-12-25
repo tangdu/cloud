@@ -2,15 +2,13 @@ package com.tdu.facade;
 
 import com.tdu.ro.UserInfoRO;
 import com.tdu.ro.UserQueryRO;
-import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("eureka.privoder")
 public interface UserFacade {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @GetMapping(value = "/hello")
     String sayHello(@RequestParam("name") String name);
 
-    @RequestMapping(value = "/queryUserInfo", method = RequestMethod.POST)
+    @PostMapping(value = "/queryUserInfo")
     UserInfoRO queryUserInfo(@RequestBody UserQueryRO userQueryRO);
 }
