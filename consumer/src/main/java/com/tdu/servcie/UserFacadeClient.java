@@ -1,7 +1,7 @@
 package com.tdu.servcie;
 
 import com.tdu.facade.UserFacade;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 
 /**
  * TODO: detail description
