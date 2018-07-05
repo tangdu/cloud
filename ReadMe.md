@@ -6,8 +6,8 @@
     consumer    API服务消费者
     gateway     API网关
 
->升级到SpringCloud Finchley
-
+#更新日期
+>升级到SpringCloud Finchley[2018-7-5]
 
 ##1.ek控制台 
     http://localhost:9091/
@@ -23,7 +23,7 @@
 ##5.权限
     实现了简单的鉴权
     GateWay提供授权服务 curl -d "" http://localhost:9000/auth/login
-    然后Post提交中再增加Authorization请求头     
+    然后Post提交中再增加Authorization请求头         
     
     
 `没有使用SpringSecurity,太麻烦`
