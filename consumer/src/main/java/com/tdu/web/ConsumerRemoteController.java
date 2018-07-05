@@ -1,5 +1,6 @@
 package com.tdu.web;
 
+import com.tdu.common.interceptor.ApiSecurity;
 import com.tdu.ro.UserInfoRO;
 import com.tdu.ro.UserQueryRO;
 import com.tdu.servcie.UserFacadeClient;
@@ -17,6 +18,7 @@ public class ConsumerRemoteController {
 
     @RequestMapping(value = "/s_hello", method = RequestMethod.GET)
     @ResponseBody
+    @ApiSecurity
     public String sayHello(@RequestParam("name") String name) {
         //String f=userFacade.moreParams(name,12);
         //LOGGER.info(f+":-------------moreParams");
