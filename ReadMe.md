@@ -7,7 +7,8 @@
     gateway     API网关
 
 #更新日期
->升级到SpringCloud Finchley[2018-7-5]
+1.升级到SpringCloud Finchley[2018-7-5]
+
 
 ##1.ek控制台 
     http://localhost:9091/
